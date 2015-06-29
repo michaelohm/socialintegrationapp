@@ -1,0 +1,24 @@
+
+<div>
+
+<!-- 	oauth user list:
+	<br>
+	<% @users.each do |user| %>
+		<%= user.email %>
+	<% end %> -->
+
+	<%= @facebook_session_data %>
+
+	<hr>
+
+	<% if @graph %>
+		Profile: <%= @graph.get_object("me") %>
+		<hr>
+		Facebook only allows you to return list of friends who are also using the same app.<br>
+		Friends: <%= @graph.get_connections("me", "friends") %>
+		<hr>
+		Feed: <%= @graph.get_connections("me", "feed") %>
+		<hr>
+
+	<% end %>
+</div>
